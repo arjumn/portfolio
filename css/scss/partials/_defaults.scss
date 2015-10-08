@@ -1,0 +1,46 @@
+// variables
+$min-width: 1008px;
+
+// colors
+$white: #fff;
+$black: #000;
+$gray: #4d4d4d;
+$light-gray: #A0A0A0;
+$orange: #CC6600;
+$red: red;
+
+// tiles
+$tile-width: 250px;
+$tile-outer-width: $tile-width + 20px;
+$experience-tile-width: 200px;
+$experience-tile-outer-width: $experience-tile-width + 30px;
+$experience-tile-height: 280px;
+$project-tile-height: 500px;
+
+// styles
+
+body, html {
+  min-width: $min-width;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Comic Sans MS", 'Big Caslon', cursive, sans-serif;
+  font-size: 20px;
+}
+
+h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.fg-red {
+  color: red;
+}

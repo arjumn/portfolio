@@ -1,0 +1,21 @@
+.icon {
+  @include inline-block;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+
+  &.icon-sm {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.icon-facebook { background: url(../img/icon_sleek_facebook.png); }
+.icon-twitter { background: url(../img/icon_sleek_twitter.png); }
+.icon-instagram { background: url(../img/icon_sleek_instagram.png); }
+.icon-email { background: url(../img/icon_sleek_email.png); }
+.icon-linkedin { background: url(../img/icon_sleek_linkedin.png); }
+.icon-home { background: url(../img/icon_home.png); }
+.icon-info { background: url(../img/icon_info.gif); }
+.icon-tools { background: url(../img/icon_tools.png); }
+.icon-contact { background: url(../img/icon_contact.png); }
