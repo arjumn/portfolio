@@ -13,9 +13,9 @@ module.exports = function(grunt) {
     includes: {
       files: {
         src: [
-          'src/*.html'
+          'src/index.html'
         ],
-        dest: 'dist/',
+        dest: 'dist/index.html',
         flatten: true,
         cwd: '.'
       }
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         tasks : ['sass']
       },
       docs: {
-        files: 'src/docs/**/*',
+        files: 'src/**/*',
         tasks: ['includes']
       }
     }
