@@ -193,24 +193,34 @@ $bar-height: 5px;
           border: 10px solid $lighter-gray;
 
           &.exp1 {
-            background: url("../img/logo_staples.png");
+            background: url("../img/logo_staples_gray.png");
             background-position: -8px -15px;
+            @include transition-duration(0.2s);
+            @include transition-property(background);
           }
           &.exp2 {
-            background: url("../img/logo_ebay.png");
+            background: url("../img/logo_ebay_gray.png");
             background-position: -7px -5px;
+            @include transition-duration(0.2s);
+            @include transition-property(background);
           }
           &.exp3 {
-            background: url("../img/logo_mp.jpg");
+            background: url("../img/logo_mp_gray.jpg");
             background-position: 10px 9px;
+            @include transition-duration(0.2s);
+            @include transition-property(background);
           }
           &.exp4 {
-            background: url("../img/logo_umn.jpg");
+            background: url("../img/logo_umn_gray.jpg");
             background-position: -8px -17px;
+            @include transition-duration(0.2s);
+            @include transition-property(background);
           }
           &.exp5 {
-            background: url("../img/logo_nokia.png");
+            background: url("../img/logo_nokia_gray.png");
             background-position: -6px -12px;
+            @include transition-duration(0.2s);
+            @include transition-property(background);
           }
 
           img {
@@ -278,6 +288,27 @@ $bar-height: 5px;
             > div {
               bottom: -1px;
             }
+            &.exp1 {
+              background: url("../img/logo_staples.png");
+              background-position: -8px -15px;
+            }
+            &.exp2 {
+              background: url("../img/logo_ebay.png");
+              background-position: -7px -5px;
+            }
+            &.exp3 {
+              background: url("../img/logo_mp.jpg");
+              background-position: 10px 9px;
+            }
+            &.exp4 {
+              background: url("../img/logo_umn.jpg");
+              background-position: -8px -17px;
+            }
+            &.exp5 {
+              background: url("../img/logo_nokia.png");
+              background-position: -6px -12px;
+            }
+
           }
         }
 
