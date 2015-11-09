@@ -5,7 +5,11 @@ var pf = {
     'navigationIcon' : '.navigation .icon-sm',
 
     'homePageSection' : '.home',
-    'aboutMeSection' : '.about-me'
+    'aboutMeSection' : '.about-me',
+
+    'experienceTile' : '.experience .exptile',
+    'projectDiv' : '.projects',
+    'closeBtn' : '.close-btn'
   },
 
   init : function() {
@@ -40,19 +44,23 @@ var pf = {
       self.setupUI();
     });
 
-    $(document).scroll(function() {
-      if( $(this).scrollTop() > height ) {
-        $(self.selectors.navigationSection).addClass('fixed');
-      }
-      else {
-        $(self.selectors.navigationSection).removeClass('fixed');
-      }
-    });
-
+    // navigation
     $(self.selectors.navigationIcon).hover(function(){
       $(this).siblings("span").removeClass("fadeOut").addClass("fader");
     }, function() {
       $(this).siblings("span").addClass("fadeOut");
+    });
+
+    $(self.selectors.experienceTile).click(function(){
+      var $self = $(this);
+      $self.addClass('active').siblings().removeClass('active');
+    });
+
+    $(self.selectors.closeBtn).click(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var $parent = $(this).closest(self.selectors.experienceTile);
+      $parent.removeClass('active');
     });
   }
 

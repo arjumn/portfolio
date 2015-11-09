@@ -1,11 +1,18 @@
 // variables
 $min-width: 1008px;
+$max-width: 1260px;
+
+// margins
+$gutter-width: 20px;
+$half-gutter-width: $gutter-width/2;
 
 // colors
 $white: #fff;
 $black: #000;
 $gray: #4d4d4d;
 $light-gray: #A0A0A0;
+$lighter-gray: #EDEDED;
+$lightest-gray: #F5F5F5;
 $orange: #CC6600;
 $red: red;
 
@@ -13,32 +20,40 @@ $red: red;
 $tile-width: 250px;
 $tile-outer-width: $tile-width + 20px;
 $experience-tile-width: 200px;
-$experience-tile-outer-width: $experience-tile-width + 30px;
-$experience-tile-height: 280px;
+$experience-tile-height: 200px;
 $project-tile-height: 500px;
+
+// shadows
+$box-shadow-tile: rgba($black, 0.2) 0 0 27px 0;
+
 
 // styles
 
 body, html {
-  min-width: $min-width;
   width: 100%;
   height: 100%;
-  margin: 0 auto;
+  background: url("../img/bg-gray-textured.jpg");
 }
 
 body {
   font-family: "Comic Sans MS", 'Big Caslon', cursive, sans-serif;
   font-size: 20px;
+  color: $gray;
 }
 
 h1 {
     font-size: 35px;
-    margin-bottom: 20px;
+    margin-bottom: $gutter-width;
 }
 
 h2 {
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: $gutter-width;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: $gutter-width;
 }
 
 .fg-red {

@@ -1,76 +1,69 @@
 @import "partials/_imports.scss";
 
-$header-height: 60px;
-$header-content-margin: 50px + $header-height;
 $pill-width: 120px;
-$box-shadow-tile: rgba($black, 0.2) 0 0 27px 0;
+$section-divider: 2px solid $lightest-gray;
 
+.container {
+  min-width: $min-width;
+  margin: 0 auto;
+}
 
 .main-content {
-  padding: 40px 140px 60px 40px;
+  padding: 0 $gutter-width;
   color: #4d4d4d;
   line-height: 1.5;
 }
 
 .tile {
-  float: left;
-  @include box-sizing();
-  margin: 15px;
+  position: relative;
+  margin: $half-gutter-width;
   vertical-align: top;
   position: relative;
-
+  cursor: pointer;
+  overflow: hidden;
+  @include box-sizing();
+  @include inline-block();
   @include transition-duration(0.5s);
   @include transition-property(box-shadow);
 }
 
+.heading {
+  @include inline-block;
+  padding-bottom: $half-gutter-width;
+  border-bottom: 5px solid $gray;
+}
 
 /***** Side nav ****/
+$nav-item-width: 50px;
+
 nav.navigation {
-  width: 100px;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  padding: 20px;
+  width: 100%;
+  padding: $gutter-width;
   color: $black;
   font-size: 15px;
-
-  &.fixed {
-    position: fixed;
-    right: 0;
-    top: 0 !important;
-  }
+  text-align: left;
 
   li {
     text-align: right;
-    &:first-child { margin-top: 20px; }
+    @include inline-block();
+
     &:not(:last-child):after {
-      display: block;
       content: "";
-      height: 30px;
-      width: 2px;
-      background: $light-gray;
-      margin: 10px 10px 10px auto;
-    }
-
-    span {
-      opacity: 0;
-
-      &.fader {
-        opacity: 1;
-        @include transition(opacity 0.4s linear);
-
-        &.fadeOut { opacity: 0; }
-      }
+      width: $nav-item-width;
+      height: 2px;
+      background: gray;
+      margin: 5px $half-gutter-width;
+      @include inline-block();
     }
 
     .icon-sm {
-      opacity: 0.5;
-      &:hover { opacity: 1;}
+      @include opacity(0.5);
+      &:hover { @include opacity(1); }
     }
   }
 
   .icon {
-    margin: 0 0 5px 10px;
+    margin: $half-gutter-width;
   }
 }
 
@@ -82,11 +75,12 @@ nav.navigation {
   background-size: cover;
   width: 100%;
   height: 100%;
+  min-height: 500px;
 
   .mask {
     background: $black;
-    @include opacity(0.7);
     height: 100%;
+    @include opacity(0.7);
   }
 
   .content {
@@ -97,12 +91,11 @@ nav.navigation {
 
     h1 {
       font-size: 45px;
-      margin-bottom: 30px;
     }
 
     .continue {
       position: relative;
-      margin-top: 20px;
+      margin-top: $gutter-width;
       height: 21px;
 
       a, a:active, a:hover {
@@ -124,7 +117,7 @@ nav.navigation {
         width: 21px;
         height: 20px;
         vertical-align: middle;
-        margin-left: 10px;
+        margin-left: $half-gutter-width;
         position: absolute;
       }
 
@@ -134,18 +127,11 @@ nav.navigation {
 
 
 /****** Info page ********/
+$bar-height: 5px;
 
 .about-me {
-    background: url(../img/bg-gray-textured.jpg) repeat;
-    text-align: center;
-
-    h1 {
-      @include inline-block;
-      padding-bottom: 10px;
-      border-bottom: 5px solid $gray;
-    }
-
     .skillset {
+      border-top: 2px solid $lightest-gray;
       position: relative;
       overflow: auto;
 
@@ -172,16 +158,16 @@ nav.navigation {
           @include inline-block;
           background: $gray;
           color: $white;
-          padding: 10px;
+          padding: $half-gutter-width;
         }
 
         .bar {
           width: $pill-width;
-          height: 5px;
+          height: $bar-height;
           margin-top: 5px;
           border: 1px solid $orange;
-          .level {
-            height: 5px;
+          div {
+            height: $bar-height;
             background: $orange;
           }
         }
@@ -191,95 +177,141 @@ nav.navigation {
     .experience {
       margin: 50px 0;
 
-      .expgrid {
-        width: $experience-tile-outer-width * 5;
-      }
+      .exptile {
+        cursor: pointer;
+        padding-bottom: $half-gutter-width;
+        border-radius: 15px;
 
-      .tile {
-        width: $experience-tile-width;
-        height: $experience-tile-height;
+        @include transition-duration(0.3s);
+        @include transition-property(background);
 
-        img {
+        .tile {
+          float: left;
           width: $experience-tile-width;
-          height: 200px;
-          @include transition-duration(0.5s);
-          @include transition-property(box-shadow);
+          height: $experience-tile-height;
+          @include border-radius(50%);
+          border: 10px solid $lighter-gray;
+
+          &.exp1 {
+            background: url("../img/logo_staples.png");
+            background-position: -8px -15px;
+          }
+          &.exp2 {
+            background: url("../img/logo_ebay.png");
+            background-position: -7px -5px;
+          }
+          &.exp3 {
+            background: url("../img/logo_mp.jpg");
+            background-position: 10px 9px;
+          }
+          &.exp4 {
+            background: url("../img/logo_umn.jpg");
+            background-position: -8px -17px;
+          }
+          &.exp5 {
+            background: url("../img/logo_nokia.png");
+            background-position: -6px -12px;
+          }
+
+          img {
+            width: $experience-tile-width;
+            height: $experience-tile-height;
+          }
+
+          > div {
+            font-size: 15px;
+            color: $white;
+            position: absolute;
+            bottom: -60px;
+            width: $experience-tile-width - (2 * $gutter-width) - $half-gutter-width;
+            background: $gray;
+            text-align: center;
+            padding: 6px $gutter-width $half-gutter-width;
+            height: 40px;
+
+            @include transition-duration(0.3s);
+            @include transition-property(bottom);
+          }
         }
 
         .details {
-          font-size: 15px;
-          display: none;
-          padding: 20px 0;
-          text-align: center;
+          font-size: 30px;
+          display: table;
+          box-sizing: border-box;
+          float: left;
+          height: $experience-tile-height/2;
+          padding: 0 $gutter-width 0 ($experience-tile-width/2 + $gutter-width);
+          width: calc(100% - 110px);
+          height: $experience-tile-height;
+          margin: $half-gutter-width 0 $half-gutter-width -111px;
+          border-radius: 15px;
+          div { text-align: right; }
+          span {
+            line-height: $experience-tile-height;
+          }
+          a.close-btn {
+            text-decoration: none;
+            color: $gray;
+            display: none;
+            float: right;
+
+            &:hover, &:visited {
+              color: $gray;
+              text-decoration: none;
+            }
+          }
         }
 
-        &:hover {
-          .details { display: block; }
-          img { @include box-shadow($box-shadow-tile); }
+        .projects {
+          height: 0;
+
+          @include transition-duration(0.5s);
+          @include transition-property(height);
+        }
+
+        &:hover, &.active {
+          background: $lightest-gray;
+
+          .tile {
+            @include box-shadow($box-shadow-tile);
+            border: 10px solid $gray;
+            > div {
+              bottom: -1px;
+            }
+          }
+        }
+
+        &.active {
+          .details .close-btn { display: block; }
+          .projects { height: 500px; }
         }
       }
     }
-}
-
-
-
-
-/******* Projects ********/
-
-.projects {
-  background: url(../img/bg-gray-textured.jpg) repeat;
-
-  .grid {
-    text-align: center;
-  }
-  .project-tile {
-    cursor: pointer;
-    @include box-sizing();
-    margin: 10px;
-    border: 1px solid $gray;
-    width: $tile-width;
-    height: $project-tile-height;
-    vertical-align: top;
-
-    @include transition-duration(0.5s);
-    @include transition-property(box-shadow);
-
-    .mask {
-      display: block;
-      width: 100%;
-      height: 100%;
-      vertical-align: middle;
-      position: relative;
-      background: $black;
-      opacity: 0;
-      @include transition-delay(0);
-      @include transition-duration(0s);
-      @include transition-property(opacity);
-
-      .learnmore {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    &:hover {
-      @include box-shadow($box-shadow-tile);
-
-      .mask {
-        opacity: 0.4;
-        @include transition-delay(0.5s);
-        @include transition-duration(0.5s);
-      }
-    }
-  }
 }
 
 /******* contact ********/
+$arrow-border: 12px;
+.arrow {
+  position: absolute;
+  top: -24px;
+  left: 100px;
+  border-bottom: $arrow-border solid $lightest-gray;
+  border-top: $arrow-border solid transparent;
+  border-left: $arrow-border solid transparent;
+  border-right: $arrow-border solid transparent;
+}
 
 .contact-me {
-  background: url(../img/bg-dark-gray.png) repeat;
+  margin-top: $gutter-width;
+  border-top: 2px solid $lightest-gray;
   height: 300px;
-  padding: 20px;
+  padding: $gutter-width;
+
+  ul li {
+    @include inline-block();
+  }
+
+  .grid {
+    .cell:first-child{ min-width: 180px; }
+  }
 }

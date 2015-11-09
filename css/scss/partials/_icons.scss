@@ -10,11 +10,29 @@
   }
 }
 
-.icon-facebook { background: url(../img/icon_sleek_facebook.png); }
-.icon-twitter { background: url(../img/icon_sleek_twitter.png); }
+.icon-facebook {
+  background: url(../img/icon_facebook_dark.png);
+  &:hover {
+    background: url(../img/icon_facebook_active.png);
+  }
+}
+
+.icon-twitter {
+  background: url(../img/icon_twitter_dark.png);
+  &:hover {
+    background: url(../img/icon_twitter_active.png);
+  }
+}
+
+.icon-linkedin {
+  background: url(../img/icon_linkedin_dark.png);
+  &:hover {
+    background: url(../img/icon_linkedin_active.png);
+  }
+}
+
 .icon-instagram { background: url(../img/icon_sleek_instagram.png); }
 .icon-email { background: url(../img/icon_sleek_email.png); }
-.icon-linkedin { background: url(../img/icon_sleek_linkedin.png); }
 .icon-home { background: url(../img/icon_home.png); }
 .icon-info { background: url(../img/icon_info.gif); }
 .icon-tools { background: url(../img/icon_tools.png); }
