@@ -9,7 +9,9 @@ var pf = {
 
     'experienceTile' : '.experience .exptile',
     'projectDiv' : '.projects',
-    'closeBtn' : '.close-btn'
+    'closeBtn' : '.close-btn',
+
+    'contactMeInputs' : '.contact-me input, .contact-me textarea'
   },
 
   init : function() {
@@ -51,17 +53,22 @@ var pf = {
       $(this).siblings("span").addClass("fadeOut");
     });
 
+    // tile click - show projects
     $(self.selectors.experienceTile).click(function(){
       var $self = $(this);
       $self.addClass('active').siblings().removeClass('active');
     });
 
+    // close btn click on project
     $(self.selectors.closeBtn).click(function(e) {
       e.preventDefault();
       e.stopPropagation();
       var $parent = $(this).closest(self.selectors.experienceTile);
       $parent.removeClass('active');
     });
+
+    // input placeholder
+    $()
   }
 
 };

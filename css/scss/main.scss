@@ -8,12 +8,6 @@ $section-divider: 2px solid $lightest-gray;
   margin: 0 auto;
 }
 
-.main-content {
-  padding: 0 $gutter-width;
-  color: #4d4d4d;
-  line-height: 1.5;
-}
-
 .tile {
   position: relative;
   margin: $half-gutter-width;
@@ -38,7 +32,6 @@ $nav-item-width: 50px;
 
 nav.navigation {
   width: 100%;
-  padding: $gutter-width;
   color: $black;
   font-size: 15px;
   text-align: left;
@@ -116,9 +109,9 @@ nav.navigation {
         background: url(../img/right-arrow.png);
         width: 21px;
         height: 20px;
-        vertical-align: middle;
         margin-left: $half-gutter-width;
         position: absolute;
+        top: 5px;
       }
 
     }
@@ -130,6 +123,9 @@ nav.navigation {
 $bar-height: 5px;
 
 .about-me {
+    box-sizing: border-box;
+    padding: $gutter-width;
+
     .skillset {
       border-top: 2px solid $lightest-gray;
       position: relative;
@@ -147,6 +143,7 @@ $bar-height: 5px;
       margin: 5em auto 0;
 
       .pill {
+        cursor: pointer;
         width: $pill-width;
         &.django {
           width: $pill-width + 30px;
@@ -165,10 +162,21 @@ $bar-height: 5px;
           width: $pill-width;
           height: $bar-height;
           margin-top: 5px;
-          border: 1px solid $orange;
+          border: 1px solid $gray;
           div {
             height: $bar-height;
-            background: $orange;
+            background: $gray;
+          }
+        }
+
+        &:hover {
+          .bar {
+            display: block;
+            border: 1px solid $orange;
+            div {
+              background: $orange;
+              width: auto;
+            }
           }
         }
       }
@@ -177,50 +185,49 @@ $bar-height: 5px;
     .experience {
       margin: 50px 0;
 
+      .background-transition {
+        @include transition-duration(0.3s);
+        @include transition-property(background);
+      }
+
       .exptile {
         cursor: pointer;
         padding-bottom: $half-gutter-width;
-        border-radius: 15px;
 
-        @include transition-duration(0.3s);
-        @include transition-property(background);
+        @include border-radius(15px);
+        @extend .background-transition;
 
         .tile {
           float: left;
           width: $experience-tile-width;
           height: $experience-tile-height;
-          @include border-radius(50%);
           border: 10px solid $lighter-gray;
+          @include border-radius(50%);
 
           &.exp1 {
             background: url("../img/logo_staples_gray.png");
             background-position: -8px -15px;
-            @include transition-duration(0.2s);
-            @include transition-property(background);
+            @extend .background-transition;
           }
           &.exp2 {
             background: url("../img/logo_ebay_gray.png");
             background-position: -7px -5px;
-            @include transition-duration(0.2s);
-            @include transition-property(background);
+            @extend .background-transition;
           }
           &.exp3 {
             background: url("../img/logo_mp_gray.jpg");
             background-position: 10px 9px;
-            @include transition-duration(0.2s);
-            @include transition-property(background);
+            @extend .background-transition;
           }
           &.exp4 {
             background: url("../img/logo_umn_gray.jpg");
             background-position: -8px -17px;
-            @include transition-duration(0.2s);
-            @include transition-property(background);
+            @extend .background-transition;
           }
           &.exp5 {
             background: url("../img/logo_nokia_gray.png");
             background-position: -6px -12px;
-            @include transition-duration(0.2s);
-            @include transition-property(background);
+            @extend .background-transition;
           }
 
           img {
@@ -254,7 +261,7 @@ $bar-height: 5px;
           width: calc(100% - 110px);
           height: $experience-tile-height;
           margin: $half-gutter-width 0 $half-gutter-width -111px;
-          border-radius: 15px;
+          @include border-radius(15px);
           div { text-align: right; }
           span {
             line-height: $experience-tile-height;
@@ -322,6 +329,8 @@ $bar-height: 5px;
 
 /******* contact ********/
 $arrow-border: 12px;
+$input-width: 250px;
+
 .arrow {
   position: absolute;
   top: -24px;
@@ -344,5 +353,39 @@ $arrow-border: 12px;
 
   .grid {
     .cell:first-child{ min-width: 180px; }
+  }
+
+  .formrow {
+    margin: 5px 0;
+  }
+
+  label {
+      vertical-align: top;
+  }
+
+  .inputs {
+    background: $lighter-gray;
+    border: 1px solid $light-gray;
+    padding: 5px 10px;
+    font-size: 13px;
+    @include border-radius(5px);
+
+    &:focus {
+      outline: 0;
+      border: 1px solid $gray;
+    }
+  }
+
+  input {
+    @extend .inputs;
+    height: 30px;
+    width: $input-width;
+  }
+
+  textarea {
+    @extend .inputs;
+    resize: none;
+    height: 130px;
+    width: $input-width + 40px;
   }
 }
