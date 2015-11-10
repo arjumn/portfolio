@@ -31,8 +31,14 @@
   }
 }
 
+.icon-email {
+  background: url(../img/icon_blog_gray.png);
+  &:hover {
+    background: url(../img/icon_blog_active.png);
+  }
+}
+
 .icon-instagram { background: url(../img/icon_sleek_instagram.png); }
-.icon-email { background: url(../img/icon_sleek_email.png); }
 .icon-home { background: url(../img/icon_home.png); }
 .icon-info { background: url(../img/icon_info.gif); }
 .icon-tools { background: url(../img/icon_tools.png); }
